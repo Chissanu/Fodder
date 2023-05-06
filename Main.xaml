@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1228,3653" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:p2="http://schemas.uipath.com/workflow/activities/intelligentocr/classification" xmlns:p3="http://schemas.uipath.com/workflow/activities/document-processing-contracts/classification" xmlns:p4="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p5="http://schemas.uipath.com/workflow/activities/intelligentocr/extraction" xmlns:p6="http://schemas.uipath.com/workflow/activities/documentunderstanding-ml" xmlns:p7="http://schemas.uipath.com/workflow/activities/document-processing-contracts/extraction" xmlns:p8="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p9="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd2="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1228,3072" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:p2="http://schemas.uipath.com/workflow/activities/intelligentocr/classification" xmlns:p3="http://schemas.uipath.com/workflow/activities/document-processing-contracts/classification" xmlns:p4="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p5="http://schemas.uipath.com/workflow/activities/intelligentocr/extraction" xmlns:p6="http://schemas.uipath.com/workflow/activities/documentunderstanding-ml" xmlns:p7="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p8="http://schemas.uipath.com/workflow/activities/document-processing-contracts/extraction" xmlns:p9="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd2="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -61,6 +61,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -146,7 +147,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="722,3588" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="646,3007" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strPassword" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="mailMsg" />
@@ -157,34 +158,40 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="660,239" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label=" Choose Option:&#xA;1) Scan Email&#xA;2) Scan Image" Title="Plz End my suffering">
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="584,239" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label=" Choose Option:&#xA;1) Scan Email&#xA;2) Scan Image" Title="Plz End my suffering">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[choice]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <If Condition="[choice = &quot;1&quot;]" sap:VirtualizedContainerService.HintSize="660,3198" sap2010:WorkflowViewState.IdRef="If_8">
+    <If Condition="[choice = &quot;1&quot;]" sap:VirtualizedContainerService.HintSize="584,2617" sap2010:WorkflowViewState.IdRef="If_8">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,270" sap2010:WorkflowViewState.IdRef="Sequence_31">
+        <Sequence sap:VirtualizedContainerService.HintSize="800,2474" sap2010:WorkflowViewState.IdRef="Sequence_31">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+x4sd8DNu0uobOToEE9OswAAAAACAAAAAAAQZgAAAAEAACAAAAAt3oH9Zx9td26nFPL/Y/iFQGFZtcqGHCJ3sqQfDB3unAAAAAAOgAAAAAIAACAAAADTtV2BFj6542S7BYiw0VPUvaYhDiZXY3q7Gv00fDQYfyAAAADxI4dC/D9gs7Sgm3hv7q8wvTLJcyF01zb6VwOaNLeMBEAAAAC2FRCSP4hhBP+5Ml3ds842A3/0IaSJq33Dw/XdCCxmFr8dFNsmnou4Jk+7iQHVmdMgV+n7I+sMbecoRR/GyU4V" Result="[strPassword]" />
-          <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" FilterExpression="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="chissanuoak2@gmail.com" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="False" Messages="[mailMsg]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Password="[strPassword]" Port="993" SecureConnection="Auto" Server="imap.gmail.com" Top="30" />
-          <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mailMsg]">
+          <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="758,25" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+x4sd8DNu0uobOToEE9OswAAAAACAAAAAAAQZgAAAAEAACAAAAAt3oH9Zx9td26nFPL/Y/iFQGFZtcqGHCJ3sqQfDB3unAAAAAAOgAAAAAIAACAAAADTtV2BFj6542S7BYiw0VPUvaYhDiZXY3q7Gv00fDQYfyAAAADxI4dC/D9gs7Sgm3hv7q8wvTLJcyF01zb6VwOaNLeMBEAAAAC2FRCSP4hhBP+5Ml3ds842A3/0IaSJq33Dw/XdCCxmFr8dFNsmnou4Jk+7iQHVmdMgV+n7I+sMbecoRR/GyU4V" Result="[strPassword]" />
+          <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" FilterExpression="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="chissanuoak2@gmail.com" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="758,25" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="False" Messages="[mailMsg]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Password="[strPassword]" Port="993" SecureConnection="Auto" Server="imap.gmail.com" Top="30" />
+          <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="758,2256" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mailMsg]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="snm:MailMessage">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="msg" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="700,2171" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="722,2132" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[msg.Sender.DisplayName = &quot;SCB Easy&quot;]" sap:VirtualizedContainerService.HintSize="638,2060" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[msg.Sender.DisplayName = &quot;SCB Easy&quot;]" sap:VirtualizedContainerService.HintSize="660,2021" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -192,15 +199,15 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="604,1878" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence sap:VirtualizedContainerService.HintSize="626,1839" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If Condition="[msg.Subject.ToString.Contains(&quot;notice of transaction&quot;)]" sap:VirtualizedContainerService.HintSize="562,1790" sap2010:WorkflowViewState.IdRef="If_3">
+                        <If Condition="[msg.Subject.ToString.Contains(&quot;notice of transaction&quot;)]" sap:VirtualizedContainerService.HintSize="584,1751" sap2010:WorkflowViewState.IdRef="If_3">
                           <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="528,1608" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                            <Sequence sap:VirtualizedContainerService.HintSize="550,1569" sap2010:WorkflowViewState.IdRef="Sequence_7">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="body" />
                                 <Variable x:TypeArguments="x:String" Name="currMail" />
@@ -210,7 +217,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                              <Assign sap:VirtualizedContainerService.HintSize="508,82" sap2010:WorkflowViewState.IdRef="Assign_4">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[currMail]</OutArgument>
                                 </Assign.To>
@@ -218,7 +225,7 @@
                                   <InArgument x:TypeArguments="x:String">[Regex.Replace(msg.Body, "&lt;BR&gt;&lt;BR&gt;", Environment.NewLine)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_13">
+                              <Assign sap:VirtualizedContainerService.HintSize="508,82" sap2010:WorkflowViewState.IdRef="Assign_13">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[currMail]</OutArgument>
                                 </Assign.To>
@@ -226,7 +233,7 @@
                                   <InArgument x:TypeArguments="x:String">[Regex.Replace(currMail, "&lt;BR&gt;", Environment.NewLine)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_19">
+                              <Assign sap:VirtualizedContainerService.HintSize="508,82" sap2010:WorkflowViewState.IdRef="Assign_19">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[currMail]</OutArgument>
                                 </Assign.To>
@@ -234,7 +241,7 @@
                                   <InArgument x:TypeArguments="x:String">[Regex.Replace(currMail,"&lt;tr&gt;", Environment.NewLine)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_20">
+                              <Assign sap:VirtualizedContainerService.HintSize="508,82" sap2010:WorkflowViewState.IdRef="Assign_20">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[currMail]</OutArgument>
                                 </Assign.To>
@@ -242,9 +249,9 @@
                                   <InArgument x:TypeArguments="x:String">[Regex.Replace(currMail,"&lt;/tr&gt;", Environment.NewLine)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,52" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="508,52" sap2010:WorkflowViewState.IdRef="CommentOut_11">
                                 <ui:CommentOut.Body>
-                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,192" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_28">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -267,7 +274,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:CommentOut>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,52" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="508,52" sap2010:WorkflowViewState.IdRef="CommentOut_12">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -292,7 +299,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:CommentOut>
-                              <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_14">
+                              <Assign sap:VirtualizedContainerService.HintSize="508,82" sap2010:WorkflowViewState.IdRef="Assign_14">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[currMail]</OutArgument>
                                 </Assign.To>
@@ -300,7 +307,7 @@
                                   <InArgument x:TypeArguments="x:String">[Regex.Replace(currMail,"&lt;/table&gt;", Environment.NewLine)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,52" sap2010:WorkflowViewState.IdRef="CommentOut_13">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="508,52" sap2010:WorkflowViewState.IdRef="CommentOut_13">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,192" sap2010:WorkflowViewState.IdRef="Sequence_30">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -325,13 +332,13 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:CommentOut>
-                              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,634" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[currMail.Split(Environment.NewLine)]">
+                              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="508,595" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[currMail.Split(Environment.NewLine)]">
                                 <ui:ForEach.Body>
                                   <ActivityAction x:TypeArguments="x:String">
                                     <ActivityAction.Argument>
                                       <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
                                     </ActivityAction.Argument>
-                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452,448" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="472,471" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -359,7 +366,13 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_8" />
+                            <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
                           </If.Else>
                         </If>
                       </Sequence>
@@ -373,7 +386,7 @@
             </ui:ForEach.Body>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -381,27 +394,24 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="626,2746" sap2010:WorkflowViewState.IdRef="Sequence_32">
+        <Sequence sap:VirtualizedContainerService.HintSize="550,2435" sap2010:WorkflowViewState.IdRef="Sequence_32">
           <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Name="docPath">
-              <Variable.Default>
-                <Literal x:TypeArguments="x:String">C:\Users\Phanuruj Sotthidat\Documents\Fodder\receipt_img\receipt-1.jpg</Literal>
-              </Variable.Default>
-            </Variable>
+            <Variable x:TypeArguments="x:String" Default="C:\Users\Phanuruj Sotthidat\Documents\Fodder\receipt_img\receipt-1.jpg" Name="docPath" />
             <Variable x:TypeArguments="x:String" Name="docText" />
             <Variable x:TypeArguments="p4:Document" Name="DOM" />
             <Variable x:TypeArguments="p9:DocumentTaxonomy" Name="taxonomy" />
-            <Variable x:TypeArguments="p8:ClassificationResult[]" Name="classificationResults" />
-            <Variable x:TypeArguments="p8:ExtractionResult" Name="extractionResults" />
+            <Variable x:TypeArguments="p7:ClassificationResult[]" Name="classificationResults" />
+            <Variable x:TypeArguments="p7:ExtractionResult" Name="extractionResults" />
             <Variable x:TypeArguments="sd2:DataSet" Name="dataSet" />
+            <Variable x:TypeArguments="sd2:DataTable" Name="receiptDT" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <p:LoadTaxonomy DisplayName="Load Taxonomy" sap:VirtualizedContainerService.HintSize="584,104" sap2010:WorkflowViewState.IdRef="LoadTaxonomy_1" Taxonomy="[taxonomy]" />
-          <p:DigitizeDocument ApplyOcrMigrated="True" ApplyOcrOnPdf="Auto" DegreeOfParallelism="-1" DetectCheckboxes="True" DisplayName="Digitize Document" DocumentObjectModel="[DOM]" DocumentPath="[docPath]" DocumentText="[docText]" ForceApplyOCR="False" sap:VirtualizedContainerService.HintSize="584,297" sap2010:WorkflowViewState.IdRef="DigitizeDocument_1">
+          <p:LoadTaxonomy DisplayName="Load Taxonomy" sap:VirtualizedContainerService.HintSize="508,104" sap2010:WorkflowViewState.IdRef="LoadTaxonomy_1" Taxonomy="[taxonomy]" />
+          <p:DigitizeDocument ApplyOcrMigrated="True" ApplyOcrOnPdf="Auto" DegreeOfParallelism="-1" DetectCheckboxes="True" DisplayName="Digitize Document" DocumentObjectModel="[DOM]" DocumentPath="[docPath]" DocumentText="[docText]" ForceApplyOCR="False" sap:VirtualizedContainerService.HintSize="508,297" sap2010:WorkflowViewState.IdRef="DigitizeDocument_1">
             <p:DigitizeDocument.OCREngine>
               <ActivityFunc x:TypeArguments="sd:Image, x:String, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))" Argument1="{x:Reference __ReferenceID0}" Argument2="{x:Reference __ReferenceID1}">
                 <p1:UiPathDocumentOCR Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ApiKey="PdFb1urYw+QYqmyFOVVCiDhpcGBx8vA5Cvec73efVPtMrJL3k32+BhuIQuYOPzoM2qqzFklAJ8FCKjizWRzE3Q==" ComputeSkewAngle="False" DisplayName="UiPath Document OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="312,25" sap2010:WorkflowViewState.IdRef="UiPathDocumentOCR_1" Language="auto" Profile="None" Scale="1" Timeout="100000">
@@ -423,7 +433,7 @@
               </ActivityFunc>
             </p:DigitizeDocument.OCREngine>
           </p:DigitizeDocument>
-          <p2:ClassifyDocumentScope ClassificationResults="[classificationResults]" DisplayName="Classify Document Scope" DocumentObjectModel="[DOM]" DocumentPath="[docPath]" DocumentText="[docText]" sap:VirtualizedContainerService.HintSize="584,436" sap2010:WorkflowViewState.IdRef="ClassifyDocumentScope_1" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI01cd7bea355e46858c3026b74e006a9e&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;KMITL.ComputerSystem.Receipts&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;KMITL.ComputerSystem.Receipts&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true}}}},&quot;ClassifierMinimumConfidence&quot;:{&quot;UI01cd7bea355e46858c3026b74e006a9e&quot;:&quot;0&quot;},&quot;DocumentTypesByPersistenceId&quot;:{&quot;UI01cd7bea355e46858c3026b74e006a9e&quot;:[]}}">
+          <p2:ClassifyDocumentScope ClassificationResults="[classificationResults]" DisplayName="Classify Document Scope" DocumentObjectModel="[DOM]" DocumentPath="[docPath]" DocumentText="[docText]" sap:VirtualizedContainerService.HintSize="508,436" sap2010:WorkflowViewState.IdRef="ClassifyDocumentScope_1" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI01cd7bea355e46858c3026b74e006a9e&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;KMITL.ComputerSystem.Receipts&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;KMITL.ComputerSystem.Receipts&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true}}}},&quot;ClassifierMinimumConfidence&quot;:{&quot;UI01cd7bea355e46858c3026b74e006a9e&quot;:&quot;0&quot;},&quot;DocumentTypesByPersistenceId&quot;:{&quot;UI01cd7bea355e46858c3026b74e006a9e&quot;:[]}}">
             <p2:ClassifyDocumentScope.Classifiers>
               <p2:KeywordBasedClassifier HumanValidatedData="{x:Null}" LearningData="{x:Null}" DisplayName="Keyword Based Classifier" sap:VirtualizedContainerService.HintSize="234,114" sap2010:WorkflowViewState.IdRef="KeywordBasedClassifier_1" LearningFilePath="DocumentProcessing\KeywordBased Classifier.json" PersistenceId="UI01cd7bea355e46858c3026b74e006a9e">
                 <p2:KeywordBasedClassifier.ClassifierResult>
@@ -471,16 +481,16 @@
               </p2:KeywordBasedClassifier>
             </p2:ClassifyDocumentScope.Classifiers>
           </p2:ClassifyDocumentScope>
-          <p5:DataExtractionScope DocumentTypeId="{x:Null}" ClassificationResult="[classificationResults(0)]" DisplayName="Data Extraction Scope" DocumentObjectModel="[DOM]" DocumentPath="[docPath]" DocumentText="[docText]" ExtractionResult="[extractionResults]" FormatValuesIfPossible="True" sap:VirtualizedContainerService.HintSize="584,515" sap2010:WorkflowViewState.IdRef="DataExtractionScope_1" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI168ed7577ba544eab30a5aa1834dc390&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;KMITL.ComputerSystem.Receipts&quot;:{&quot;FieldMappings&quot;:{&quot;KMITL.ComputerSystem.Receipts.VenderName&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.VenderName&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;name\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;KMITL.ComputerSystem.Receipts.Date&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Date&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;date\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;KMITL.ComputerSystem.Receipts.Items&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Items&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;items\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;KMITL.ComputerSystem.Receipts.Items.Description&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Items.Description&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;description\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;KMITL.ComputerSystem.Receipts.Items.Quantity&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Items.Quantity&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;quantity\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;KMITL.ComputerSystem.Receipts.Items.LineAmount&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Items.LineAmount&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;line-amount\&quot;&quot;,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:&quot;\&quot;\&quot;&quot;}}}},&quot;ExtractorMinimumConfidence&quot;:{&quot;UI168ed7577ba544eab30a5aa1834dc390&quot;:&quot;0&quot;},&quot;ExtractorsAliases&quot;:{},&quot;DocumentTypeOptionsByExtractor&quot;:{&quot;UI168ed7577ba544eab30a5aa1834dc390&quot;:[{&quot;FieldId&quot;:&quot;&quot;,&quot;SubOptions&quot;:[{&quot;FieldId&quot;:&quot;name&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;vendor-addr&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;phone&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;date&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;total&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;tax&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;receipt-number&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;currency&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;expense-type&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;items&quot;,&quot;SubOptions&quot;:[{&quot;FieldId&quot;:&quot;description&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;quantity&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;unit-price&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;line-amount&quot;,&quot;SubOptions&quot;:null}]}]}]}}">
+          <p5:DataExtractionScope DocumentTypeId="{x:Null}" ClassificationResult="[classificationResults(0)]" DisplayName="Data Extraction Scope" DocumentObjectModel="[DOM]" DocumentPath="[docPath]" DocumentText="[docText]" ExtractionResult="[extractionResults]" FormatValuesIfPossible="True" sap:VirtualizedContainerService.HintSize="508,515" sap2010:WorkflowViewState.IdRef="DataExtractionScope_1" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI168ed7577ba544eab30a5aa1834dc390&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;KMITL.ComputerSystem.Receipts&quot;:{&quot;FieldMappings&quot;:{&quot;KMITL.ComputerSystem.Receipts.VenderName&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.VenderName&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;name\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;KMITL.ComputerSystem.Receipts.Date&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Date&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;date\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;KMITL.ComputerSystem.Receipts.Total&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Total&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;total\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;KMITL.ComputerSystem.Receipts.Items&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Items&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;items\&quot;&quot;,&quot;ShouldExtract&quot;:false},&quot;KMITL.ComputerSystem.Receipts.Items.Description&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Items.Description&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;description\&quot;&quot;,&quot;ShouldExtract&quot;:false},&quot;KMITL.ComputerSystem.Receipts.Items.Quantity&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Items.Quantity&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;quantity\&quot;&quot;,&quot;ShouldExtract&quot;:false},&quot;KMITL.ComputerSystem.Receipts.Items.LineAmount&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;KMITL.ComputerSystem.Receipts.Items.LineAmount&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;line-amount\&quot;&quot;,&quot;ShouldExtract&quot;:false}},&quot;ExtractorDocumentTypeId&quot;:&quot;\&quot;\&quot;&quot;}}}},&quot;ExtractorMinimumConfidence&quot;:{&quot;UI168ed7577ba544eab30a5aa1834dc390&quot;:&quot;0&quot;},&quot;ExtractorsAliases&quot;:{},&quot;DocumentTypeOptionsByExtractor&quot;:{&quot;UI168ed7577ba544eab30a5aa1834dc390&quot;:[{&quot;FieldId&quot;:&quot;&quot;,&quot;SubOptions&quot;:[{&quot;FieldId&quot;:&quot;name&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;vendor-addr&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;phone&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;date&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;total&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;tax&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;receipt-number&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;currency&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;expense-type&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;items&quot;,&quot;SubOptions&quot;:[{&quot;FieldId&quot;:&quot;description&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;quantity&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;unit-price&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;line-amount&quot;,&quot;SubOptions&quot;:null}]}]}]}}">
             <p5:DataExtractionScope.Extractors>
               <p6:MachineLearningExtractor SelectedMLSkill="{x:Null}" ApiKey="PdFb1urYw+QYqmyFOVVCiDhpcGBx8vA5Cvec73efVPtMrJL3k32+BhuIQuYOPzoM2qqzFklAJ8FCKjizWRzE3Q==" Configuration="{}{&quot;Endpoint&quot;:&quot;https://du.uipath.com/ie/receipts&quot;,&quot;ApiKey&quot;:&quot;PdFb1urYw+QYqmyFOVVCiDhpcGBx8vA5Cvec73efVPtMrJL3k32+BhuIQuYOPzoM2qqzFklAJ8FCKjizWRzE3Q==&quot;,&quot;AvailableMLSkills&quot;:[]}" DisplayName="Machine Learning Extractor" Endpoint="https://du.uipath.com/ie/receipts" sap:VirtualizedContainerService.HintSize="234,193" sap2010:WorkflowViewState.IdRef="MachineLearningExtractor_1" PersistenceId="UI168ed7577ba544eab30a5aa1834dc390" RetryOnFailure="True" Timeout="100000" UseServerSideOCR="False">
                 <p6:MachineLearningExtractor.AvailableMLSkills>
                   <sc:BindingList x:TypeArguments="x:String" AllowEdit="True" AllowNew="False" AllowRemove="True" RaiseListChangedEvents="True" />
                 </p6:MachineLearningExtractor.AvailableMLSkills>
                 <p6:MachineLearningExtractor.DocumentBounds>
-                  <InArgument x:TypeArguments="p8:ResultsDocumentBounds">
-                    <DelegateArgumentValue x:TypeArguments="p8:ResultsDocumentBounds">
-                      <DelegateInArgument x:TypeArguments="p8:ResultsDocumentBounds" Name="DocumentBounds" />
+                  <InArgument x:TypeArguments="p7:ResultsDocumentBounds">
+                    <DelegateArgumentValue x:TypeArguments="p7:ResultsDocumentBounds">
+                      <DelegateInArgument x:TypeArguments="p7:ResultsDocumentBounds" Name="DocumentBounds" />
                     </DelegateArgumentValue>
                   </InArgument>
                 </p6:MachineLearningExtractor.DocumentBounds>
@@ -506,16 +516,16 @@
                   </InArgument>
                 </p6:MachineLearningExtractor.DocumentText>
                 <p6:MachineLearningExtractor.ExtractorDocumentType>
-                  <InArgument x:TypeArguments="p7:ExtractorDocumentType">
-                    <DelegateArgumentValue x:TypeArguments="p7:ExtractorDocumentType">
-                      <DelegateInArgument x:TypeArguments="p7:ExtractorDocumentType" Name="ExtractorDocumentType" />
+                  <InArgument x:TypeArguments="p8:ExtractorDocumentType">
+                    <DelegateArgumentValue x:TypeArguments="p8:ExtractorDocumentType">
+                      <DelegateInArgument x:TypeArguments="p8:ExtractorDocumentType" Name="ExtractorDocumentType" />
                     </DelegateArgumentValue>
                   </InArgument>
                 </p6:MachineLearningExtractor.ExtractorDocumentType>
                 <p6:MachineLearningExtractor.ExtractorResult>
-                  <OutArgument x:TypeArguments="p7:ExtractorResult">
-                    <DelegateArgumentReference x:TypeArguments="p7:ExtractorResult">
-                      <DelegateOutArgument x:TypeArguments="p7:ExtractorResult" Name="ExtractorResult" />
+                  <OutArgument x:TypeArguments="p8:ExtractorResult">
+                    <DelegateArgumentReference x:TypeArguments="p8:ExtractorResult">
+                      <DelegateOutArgument x:TypeArguments="p8:ExtractorResult" Name="ExtractorResult" />
                     </DelegateArgumentReference>
                   </OutArgument>
                 </p6:MachineLearningExtractor.ExtractorResult>
@@ -529,52 +539,44 @@
               </p6:MachineLearningExtractor>
             </p5:DataExtractionScope.Extractors>
           </p5:DataExtractionScope>
-          <p5:ExportExtractionResults DataSet="[dataSet]" DisplayName="Export Extraction Results" ExtractionResult="[extractionResults]" sap:VirtualizedContainerService.HintSize="584,174" sap2010:WorkflowViewState.IdRef="ExportExtractionResults_1" IncludeConfidence="False" IncludeOCRConfidence="False" />
-          <ui:ForEach x:TypeArguments="sd2:DataTable" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="584,351" sap2010:WorkflowViewState.IdRef="ForEach`1_12" Values="[dataSet.Tables]">
+          <p5:ExportExtractionResults DataSet="[dataSet]" DisplayName="Export Extraction Results" ExtractionResult="[extractionResults]" sap:VirtualizedContainerService.HintSize="508,174" sap2010:WorkflowViewState.IdRef="ExportExtractionResults_1" IncludeConfidence="False" IncludeOCRConfidence="False" />
+          <ui:ForEach x:TypeArguments="sd2:DataTable" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="508,621" sap2010:WorkflowViewState.IdRef="ForEach`1_14" Values="[dataSet.Tables]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="sd2:DataTable">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sd2:DataTable" Name="item" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                <Sequence sap:VirtualizedContainerService.HintSize="472,497" sap2010:WorkflowViewState.IdRef="Sequence_39">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[item]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Receipt" WorkbookPath="Output\income&amp;expenses.xlsx" />
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEach.Body>
-          </ui:ForEach>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="584,541" sap2010:WorkflowViewState.IdRef="CommentOut_14">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="548,462" sap2010:WorkflowViewState.IdRef="Sequence_35">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEach x:TypeArguments="sd2:DataTable" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,351" sap2010:WorkflowViewState.IdRef="ForEach`1_11" Values="[dataSet.Tables]">
-                  <ui:ForEach.Body>
-                    <ActivityAction x:TypeArguments="sd2:DataTable">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="sd2:DataTable" Name="item" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                  <If Condition="[item.ToString = &quot;Simple Fields - Formatted&quot;]" sap:VirtualizedContainerService.HintSize="410,386" sap2010:WorkflowViewState.IdRef="If_9">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_40">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[item]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[item.TableName]" WorkbookPath="[&quot;Output\&quot;+system.IO.Path.GetFileNameWithoutExtension(docPath)+&quot;.xlsx&quot;]" />
+                        <ui:AppendRange DataTable="[item]" DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Receipt" WorkbookPath="Output\income&amp;expenses.xlsx" />
                       </Sequence>
-                    </ActivityAction>
-                  </ui:ForEach.Body>
-                </ui:ForEach>
-              </Sequence>
-            </ui:CommentOut.Body>
-          </ui:CommentOut>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
         </Sequence>
       </If.Else>
     </If>

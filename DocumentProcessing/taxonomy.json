@@ -13,6 +13,27 @@
       },
       "Fields": [
         {
+          "FieldId": "KMITL.ComputerSystem.Receipts.Date",
+          "FieldName": "Date",
+          "IsMultiValue": false,
+          "Type": "Date",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#fa6616"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "a"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
           "FieldId": "KMITL.ComputerSystem.Receipts.VenderName",
           "FieldName": "Vender Name",
           "IsMultiValue": false,
@@ -34,21 +55,21 @@
           "DefaultValue": ""
         },
         {
-          "FieldId": "KMITL.ComputerSystem.Receipts.Date",
-          "FieldName": "Date",
+          "FieldId": "KMITL.ComputerSystem.Receipts.Total",
+          "FieldName": "Total",
           "IsMultiValue": false,
-          "Type": "Date",
+          "Type": "Number",
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": [],
           "Metadata": [
             {
               "Key": "Color",
-              "Value": "#fa6616"
+              "Value": "#20389d"
             },
             {
               "Key": "Hotkey",
-              "Value": "a"
+              "Value": "l"
             }
           ],
           "RuleSet": null,
