@@ -3,9 +3,12 @@
   "description": "Automation Project",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.DocumentUnderstanding.ML.Activities": "[1.21.1]",
     "UiPath.Excel.Activities": "[2.20.1]",
+    "UiPath.IntelligentOCR.Activities": "[6.9.1]",
     "UiPath.Mail.Activities": "[1.18.2]",
-    "UiPath.System.Activities": "[23.4.2]",
+    "UiPath.OmniPage.Activities": "[1.15.0]",
+    "UiPath.System.Activities": "[22.10.5]",
     "UiPath.Testing.Activities": "[23.4.0]",
     "UiPath.UIAutomation.Activities": "[23.4.4]"
   },
